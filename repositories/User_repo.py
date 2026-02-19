@@ -17,5 +17,11 @@ class UserRepo:
         return self.db.query(User).filter(User.id == id).first()
     
     def update_user(self,user:User):
+        self.db.add(user)
+        self.db.commit()
+        return user
+
+    def update_user_name(self,user:User):
+        self.db.add(user)
         self.db.commit()
         return user
